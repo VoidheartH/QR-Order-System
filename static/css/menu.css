@@ -38,23 +38,23 @@
   height: 200px;
   object-fit: cover;
   border-radius: 6px;
-  margin-bottom: 15px; /* ↑ a little more space under image */
+  margin-bottom: 15px;
   border: 2px solid #444;
 }
 
 /* ── Dish Name ───────────────────────────────────────── */
 .menu-item h4 {
-  margin: 12px 0; /* ↑ extra space above/below */
+  margin: 12px 0;
   font-size: 1.25rem;
   color: #fff;
 }
 
 /* ── Description ─────────────────────────────────────── */
 .menu-item p {
-  font-size: 1rem; /* ↑ slightly larger for readability */
+  font-size: 1rem;
   color: #ddd;
   line-height: 1.4;
-  margin-bottom: 20px; /* ↑ more room before qty controls */
+  margin-bottom: 20px;
 }
 
 /* ── Quantity Selector ───────────────────────────────── */
@@ -62,13 +62,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 1.5rem; /* ↑ extra bottom padding */
+  margin-bottom: 1.5rem;
 }
 .qty-btn {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 36px; /* ↑ bigger tap targets */
+  width: 36px;
   height: 36px;
   border: none;
   background-color: #4caf50;
@@ -76,7 +76,7 @@
   font-size: 1.4rem;
   border-radius: 4px;
   cursor: pointer;
-  margin: 0 0.75rem; /* ↑ more horizontal space */
+  margin: 0 0.75rem;
   padding: 0;
   line-height: 1;
   transition: background-color 0.2s;
@@ -85,7 +85,7 @@
   background-color: #45a049;
 }
 .qty-value {
-  min-width: 30px; /* ↑ wider for double-digit counts */
+  min-width: 30px;
   text-align: center;
   font-size: 1.1rem;
 }
@@ -116,7 +116,7 @@
 #special-notes {
   width: 60%;
   max-width: 500px;
-  padding: 0.75rem; /* ↑ a bit more padding */
+  padding: 0.75rem;
   border: 1px solid #ccc;
   border-radius: 4px;
   resize: none;
@@ -134,6 +134,35 @@
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+/* leave h2 centered by default */
+
+/* center the list and total inside the cart */
+#cart-items,
+#cart-total {
+  width: fit-content;
+  margin: 0.5rem auto;
+  text-align: left;
+  padding-left: 1.2em; /* keep bullets aligned */
+}
+
+/* buttons stay centered */
+.cart-actions {
+  text-align: center;
+}
 .cart-actions button {
   margin: 0 0.5rem;
+}
+
+/* ── Live Orders Centering ──────────────────────────── */
+/* center the timestamp & list at bottom */
+#last-updated,
+#order-status-list {
+  width: fit-content;
+  margin: 1rem auto;
+  text-align: left;
+}
+/* indent bullets but keep the boxed block centered */
+#order-status-list {
+  padding-left: 1.2em;
+  display: inline-block;
 }
