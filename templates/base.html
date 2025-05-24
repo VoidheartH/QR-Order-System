@@ -6,10 +6,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <title>{% block title %}Bursa Kebap Evi{% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link rel="icon" type="image/png" href="https://www.bursakebapevi.com/assets/components/images/footer-logo.png">
-    {% block head_extra %}{% endblock %}
+
+    {# ── GLOBAL (base) CSS ─────────────────────── #}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+
+    {# ── PAGE-SPECIFIC CSS ─────────────────────── #}
+    {% block extra_css %}{% endblock %}
 </head>
 
 <body class="{% block body_class %}{% endblock %}" {% if table_id is defined %}data-tableid="{{ table_id }}" {% endif
@@ -39,7 +43,6 @@
 
     {# ── SCRIPTS ─────────────────────────────────── #}
     {% block scripts %}{% endblock %}
-
 </body>
 
 </html>

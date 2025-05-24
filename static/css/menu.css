@@ -1,0 +1,66 @@
+/* Menu container & flex grid */
+#menu-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+/* Menu item cards */
+.menu-item {
+  background-color: #000;
+  color: #fff;
+  margin: 15px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  width: calc(33.333% - 30px);
+  box-sizing: border-box;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.menu-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+.menu-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  border: 2px solid #444;
+}
+.menu-item h4 {
+  margin: 8px 0;
+  font-size: 1.2rem;
+}
+.menu-item p {
+  font-size: 0.9em;
+  color: #ddd;
+  margin-bottom: 12px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .menu-item {
+    width: calc(50% - 30px);
+  }
+}
+@media (max-width: 480px) {
+  .menu-item {
+    width: calc(100% - 30px);
+  }
+}
+
+/* Special notes textarea */
+#notes-container {
+  margin: 1.5rem 0;
+}
+#special-notes {
+  width: 60%;
+  max-width: 500px;
+  resize: none;
+  font-family: inherit;
+  font-size: 1rem;
+}

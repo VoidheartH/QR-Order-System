@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 {% block html_lang %}tr{% endblock %}
 {% block title %}Kasiyer Paneli — Bursa Kebap Evi{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/orders.css') }}">
+{% endblock %}
 
 {% block content %}
 {# ── PAGE TITLE ─────────────────────────────────────── #}

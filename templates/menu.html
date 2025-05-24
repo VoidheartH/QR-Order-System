@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 {% block html_lang %}tr{% endblock %}
 {% block title %}Masa {{ table_id }} — Menü{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}">
+{% endblock %}
 
 {% block content %}
 {# ── PAGE TITLE ─────────────────────────────────────────── #}

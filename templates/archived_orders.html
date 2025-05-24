@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 {% block html_lang %}tr{% endblock %}
 {% block title %}Arşivlenmiş Siparişler — Bursa Kebap Evi{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/archived_orders.css') }}">
+{% endblock %}
 
 {% block content %}
 {# ── PAGE TITLE ───────────────────────────────────── #}

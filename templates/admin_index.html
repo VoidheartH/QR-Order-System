@@ -1,6 +1,10 @@
 {% extends 'admin/master.html' %}
-{% block body %}
+{% block extra_css %}
+{# load page-specific stylesheet #}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin_index.css') }}">
+{% endblock %}
 
+{% block body %}
 {# ── BACK TO CASHIER PANEL BUTTON ───────────────────────── #}
 <div style="padding:1rem;">
     <a href="{{ url_for('admin_view') }}" class="btn btn-primary">

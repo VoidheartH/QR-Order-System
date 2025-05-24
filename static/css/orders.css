@@ -1,0 +1,39 @@
+/* Controls at top */
+.orders-controls {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 1rem auto;
+}
+.orders-controls > * {
+  margin: 0.5rem;
+}
+
+/* Orders table */
+#orders-table {
+  width: 90%;
+  margin: 1.5rem auto;
+  border-collapse: collapse;
+}
+#orders-table th,
+#orders-table td {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  text-align: center;
+}
+#orders-table th {
+  background: #f9f9f9;
+}
+#orders-table tbody tr:nth-child(even) {
+  background: #fafafa;
+}
+#orders-table tbody tr:hover {
+  background: #f1f1f1;
+}
+/* Wrap “Notlar” column */
+#orders-table th:nth-child(4),
+#orders-table td:nth-child(4) {
+  max-width: 300px;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+}

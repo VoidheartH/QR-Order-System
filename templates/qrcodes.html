@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
 {% block html_lang %}tr{% endblock %}
 {% block title %}QR Kod Yöneticisi{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/qrcodes.css') }}">
+{% endblock %}
 
 {% block content %}
 <h1>📷 QR Kod Yöneticisi</h1>

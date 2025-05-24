@@ -1,0 +1,48 @@
+/* Hide the global nav on login page */
+body.login-page nav {
+  display: none;
+}
+
+/* Centered login box */
+.login-box {
+  background: #fff;
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.login-box h1 {
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+.login-form .form-group {
+  margin-bottom: 1.25rem;
+}
+.login-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #333;
+}
+.login-form input.form-control {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.btn-block {
+  display: block;
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.75rem;
+  font-size: 1rem;
+}
+.home-link {
+  display: block;
+  text-align: center;
+  margin-top: 1rem;
+  color: #007bff;
+  text-decoration: none;
+}
+.home-link:hover {
+  text-decoration: underline;
+}
