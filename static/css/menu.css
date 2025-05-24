@@ -1,12 +1,13 @@
-/* Menu container & flex grid */
+/* ── MENU GRID ─────────────────────────────────────────────── */
 #menu-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 1rem;
+  margin: 1rem auto;
+  padding: 0;
 }
 
-/* Menu item cards */
+/* ── MENU ITEM CARDS ──────────────────────────────────────── */
 .menu-item {
   background-color: #000;
   color: #fff;
@@ -14,53 +15,164 @@
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-  width: calc(33.333% - 30px);
-  box-sizing: border-box;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-.menu-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
-}
-.menu-item img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 6px;
-  margin-bottom: 10px;
-  border: 2px solid #444;
-}
-.menu-item h4 {
-  margin: 8px 0;
-  font-size: 1.2rem;
-}
-.menu-item p {
-  font-size: 0.9em;
-  color: #ddd;
-  margin-bottom: 12px;
 }
 
-/* Responsive tweaks */
-@media (max-width: 768px) {
-  .menu-item {
-    width: calc(50% - 30px);
-  }
+/* product image */
+.menu-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
 }
-@media (max-width: 480px) {
+
+/* title & price row */
+.menu-item h2 {
+  margin: 0.75rem 0 0.25rem;
+  font-size: 1.2rem;
+  line-height: 1.2;
+}
+.menu-item .price {
+  font-size: 1rem;
+  color: #eee;
+}
+
+/* description */
+.menu-item p.description {
+  margin: 0.5rem 0 1rem;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* ── QUANTITY CONTROLS ───────────────────────────────────── */
+.quantity-controls {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.quantity-controls button {
+  background-color: #28a745;
+  border: none;
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+  margin: 0 0.25rem;
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.quantity-controls button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+.quantity-controls span.quantity {
+  min-width: 1.5rem;
+  text-align: center;
+  font-size: 1rem;
+}
+
+/* ── RESPONSIVE ───────────────────────────────────────────── */
+@media (max-width: 600px) {
   .menu-item {
     width: calc(100% - 30px);
   }
 }
 
-/* Special notes textarea */
+/* ── NOTES INPUT & LABEL ──────────────────────────────────── */
 #notes-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   margin: 1.5rem 0;
 }
+#notes-container label {
+  margin-right: 0.5rem;
+  font-weight: 600;
+}
 #special-notes {
-  width: 60%;
+  flex: 1;
   max-width: 500px;
-  resize: none;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
   font-family: inherit;
   font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+/* stack label/input on mobile */
+@media (max-width: 600px) {
+  #notes-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  #notes-container label {
+    margin: 0 0 0.5rem;
+  }
+}
+
+/* ── ORDER SUMMARY ────────────────────────────────────────── */
+#order-summary {
+  margin: 1.5rem auto;
+  text-align: center;
+}
+#order-summary h3 {
+  display: inline-flex;
+  align-items: center;
+  font-size: 1.2rem;
+}
+#order-summary h3::before {
+  content: "\1F6D2"; /* shopping cart emoji */
+  margin-right: 0.5rem;
+  font-size: 1.5rem;
+}
+#order-summary ul {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem auto;
+  text-align: left;
+  display: inline-block;
+}
+#order-summary li {
+  margin: 0.25rem 0;
+}
+#order-summary #total {
+  font-weight: 700;
+  margin-top: 0.5rem;
+}
+
+/* ── ACTION BUTTONS ───────────────────────────────────────── */
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.btn-cancel {
+  background-color: #6c757d;
+  color: #fff;
+  margin-right: 0.5rem;
+}
+.btn-submit {
+  background-color: #28a745;
+  color: #fff;
+}
+.btn:hover {
+  opacity: 0.9;
+}
+
+/* ── LAST UPDATED TIMESTAMP ───────────────────────────────── */
+#last-updated {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #555;
+  text-align: center;
 }
