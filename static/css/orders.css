@@ -1,12 +1,28 @@
 /* Controls at top */
 .orders-controls {
   display: flex;
+  align-items: center; /* vertically center */
   justify-content: center;
   flex-wrap: wrap;
+  gap: 0.75rem; /* replaces individual margins */
   margin: 1rem auto;
 }
-.orders-controls > * {
-  margin: 0.5rem;
+
+/* Slim down the dropdown */
+.orders-controls select,
+.orders-controls .status-select {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.9rem;
+  line-height: 1.2;
+  height: auto;
+}
+
+/* Slim down the buttons */
+.orders-controls button {
+  padding: 0.35rem 0.75rem;
+  font-size: 0.9rem;
+  line-height: 1.2;
+  border-radius: 4px;
 }
 
 /* Orders table */
@@ -30,18 +46,13 @@
 #orders-table tbody tr:hover {
   background: #f1f1f1;
 }
+
 /* Wrap “Notlar” column */
 #orders-table th:nth-child(4),
 #orders-table td:nth-child(4) {
   max-width: 300px;
   white-space: pre-wrap;
   overflow-wrap: break-word;
-}
-
-/* bold Masa column (2nd column) */
-table th:nth-child(2),
-table td:nth-child(2) {
-  font-weight: 700;
 }
 
 /* tighten up the Durum dropdown */
@@ -51,11 +62,16 @@ table td:nth-child(2) {
   height: auto;
 }
 
+/* Bold Masa column (2nd column) */
+#orders-table th:nth-child(2),
+#orders-table td:nth-child(2) {
+  font-weight: 700;
+}
+
 /* flex-container for Güncelle + Arşivle */
 .action-buttons {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
 }
 
 /* push Arşivle to the right & make it red */
@@ -67,4 +83,16 @@ table td:nth-child(2) {
 .action-buttons .btn-archive:hover {
   background-color: #c0392b;
   border-color: #c0392b;
+}
+
+/* Mobile: stack controls full-width under 480px */
+@media (max-width: 480px) {
+  .orders-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .orders-controls select,
+  .orders-controls button {
+    width: 100%;
+  }
 }
