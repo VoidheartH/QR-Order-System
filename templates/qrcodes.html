@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block html_lang %}tr{% endblock %}
+{% block title %}QR Kod Yöneticisi{% endblock %}
+
+{% block content %}
+<h1>📷 QR Kod Yöneticisi</h1>
+
+{# ── Top pagination ──────────────────────────────────────────── #}
+<div class="pagination">
+    {% if page > 1 %}
+    <a href="{{ url_for('qrcodes_page', page=page-1) }}">« Önceki</a>
+    {% else %}
+    <a class="disabled">« Önceki</a>
+    {% endif %}
+
+    {% for p in range(1, total_pages+1) %}
+    <a href="{{ url_for('qrcodes_page', page=p) }}" class="{{ 'current' if p == page else '' }}">{{ p }}</a>
+    {% endfor %}
+
+    {% if page < total_pages %} <a href="{{ url_for('qrcodes_page', page=page+1) }}">Sonraki »</a>
+        {% else %}
+        <a class="disabled">Sonraki »</a>
+        {% endif %}
+</div>
+
+<!-- ── PDF Download Button (Centered via inline style) ── -->
+<div style="text-align: center; margin: 1rem 0;">
+    <a href="{{ url_for('qrcodes_pdf', page=page) }}" class="btn btn-primary">PDF olarak indir</a>
+</div>
+
+{# ── QR Grid ──────────────────────────────────────────────────── #}
+<div class="qr-grid">
+    {% for n in table_ids %}
+    <div class="qr-item">
+        <a href="{{ url_for('qr_code', table_id=n) }}" download="qr-table-{{n}}.png">
+            <img src="{{ url_for('qr_code', table_id=n) }}" alt="Masa {{n}} QR" class="qr-img">
+        </a>
+        <div>Masa {{n}}</div>
+        <a href="{{ url_for('qr_code', table_id=n) }}" download="qr-table-{{n}}.png" class="btn">PNG İndir</a>
+    </div>
+    {% endfor %}
+</div>
+
+{# ── Bottom pagination ───────────────────────────────────────── #}
+<div class="pagination">
+    {% if page > 1 %}
+    <a href="{{ url_for('qrcodes_page', page=page-1) }}">« Önceki</a>
+    {% else %}
+    <a class="disabled">« Önceki</a>
+    {% endif %}
+
+    {% for p in range(1, total_pages+1) %}
+    <a href="{{ url_for('qrcodes_page', page=p) }}" class="{{ 'current' if p == page else '' }}">{{ p }}</a>
+    {% endfor %}
+
+    {% if page < total_pages %} <a href="{{ url_for('qrcodes_page', page=page+1) }}">Sonraki »</a>
+        {% else %}
+        <a class="disabled">Sonraki »</a>
+        {% endif %}
+</div>
+{% endblock %}

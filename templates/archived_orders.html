@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block html_lang %}tr{% endblock %}
+{% block title %}Arşivlenmiş Siparişler — Bursa Kebap Evi{% endblock %}
+
+{% block content %}
+{# ── PAGE TITLE ───────────────────────────────────── #}
+<h1 class="page-title">📦 Arşivlenmiş Siparişler</h1>
+
+{# ── CONTROLS (Filter, Refresh, CSV) ─────────────────── #}
+<div class="completed-controls">
+    <label for="status-filter-archived">Duruma göre filtrele:</label>
+    <select id="status-filter-archived">
+        <option value="All">Hepsi</option>
+        <option value="Pending">Beklemede</option>
+        <option value="Preparing">Hazırlanıyor</option>
+        <option value="Ready">Hazır</option>
+        <option value="Completed">Tamamlandı</option>
+    </select>
+    <button id="refresh-archived">Yenile 🔄</button>
+    <button id="export-archived">CSV Dışa Aktar</button>
+</div>
+
+{# ── ARCHIVED ORDERS TABLE ─────────────────────────── #}
+<table id="archived-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Masa</th>
+            <th>Ürünler</th>
+            <th>Notlar</th>
+            <th>Durum</th>
+            <th>Zaman</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+{% endblock %}
+
+{% block scripts %}
+{# ── ARCHIVED ORDERS SCRIPT ────────────────────────── #}
+<script src="{{ url_for('static', filename='js/archived.js') }}"></script>
+{% endblock %}

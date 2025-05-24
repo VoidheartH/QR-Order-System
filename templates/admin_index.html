@@ -1,0 +1,14 @@
+{% extends 'admin/master.html' %}
+{% block body %}
+
+{# ── BACK TO CASHIER PANEL BUTTON ───────────────────────── #}
+<div style="padding:1rem;">
+    <a href="{{ url_for('admin_view') }}" class="btn btn-primary">
+        ← Panele Dön
+    </a>
+</div>
+
+{# ── FLASK-ADMIN INDEX CONTENT ─────────────────────────── #}
+{{ super() }}
+
+{% endblock %}

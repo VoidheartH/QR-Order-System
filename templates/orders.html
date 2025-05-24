@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block html_lang %}tr{% endblock %}
+{% block title %}Kasiyer Paneli — Bursa Kebap Evi{% endblock %}
+
+{% block content %}
+{# ── PAGE TITLE ─────────────────────────────────────── #}
+<h1>👩‍🍳 Kasiyer Paneli</h1>
+
+{# ── CONTROLS (Filter, CSV Export, Bulk Update) ─────── #}
+<div class="orders-controls">
+    <label for="status-filter">Duruma göre filtrele:</label>
+    <select id="status-filter">
+        <option value="All">Hepsi</option>
+        <option value="Pending">Beklemede</option>
+        <option value="Preparing">Hazırlanıyor</option>
+        <option value="Ready">Hazır</option>
+        <option value="Completed">Tamamlandı</option>
+    </select>
+    <button id="export-csv">CSV Dışa Aktar</button>
+    <button id="bulk-update-btn">Hepsini Güncelle</button>
+</div>
+
+{# ── ORDERS TABLE ────────────────────────────────────── #}
+<table id="orders-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Masa</th>
+            <th>Ürünler</th>
+            <th>Notlar</th>
+            <th>Durum</th>
+            <th>Zaman</th>
+            <th>İşlem</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+{% endblock %}
+
+{% block scripts %}
+{# ── CASHIER PANEL SCRIPT ───────────────────────────── #}
+<script src="{{ url_for('static', filename='js/admin.js') }}"></script>
+{% endblock %}

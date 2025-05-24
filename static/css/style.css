@@ -1,0 +1,467 @@
+/* ── Global Centering & Headings ───────────────────── */
+h1,
+h2,
+h3,
+nav {
+  text-align: center;
+  margin: 1rem 0;
+  color: #333;
+}
+
+/* ── Navigation Bar ───────────────────────────────── */
+nav {
+  background-color: #fff;
+  padding: 0.5rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+nav a {
+  color: #333;
+  margin: 0 0.75rem;
+  text-decoration: none;
+  font-weight: 500;
+}
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* ── Orders Table Styling ─────────────────────────── */
+#orders-table {
+  width: 90%;
+  margin: 1.5rem auto;
+  border-collapse: collapse;
+}
+#orders-table th,
+#orders-table td {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  text-align: center;
+}
+#orders-table th {
+  background-color: #f9f9f9;
+}
+#orders-table tbody tr:nth-child(even) {
+  background-color: #fafafa;
+}
+#orders-table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* ── Kasiyer Paneli “Notlar” Column Wrapping ──────── */
+#orders-table th:nth-child(4),
+#orders-table td:nth-child(4) {
+  max-width: 300px;
+  white-space: pre-wrap; /* allow wrapping but keep existing line breaks */
+  overflow-wrap: break-word; /* break up any super-long “words” */
+}
+
+/* ── Arşivlenmiş Siparişler “Notlar” Column Wrapping ─ */
+#archived-table th:nth-child(4),
+#archived-table td:nth-child(4) {
+  max-width: 300px; /* adjust width as you like */
+  white-space: pre-wrap; /* preserve any manual line breaks */
+  overflow-wrap: break-word; /* break long words/strings */
+}
+
+/* ── Archived Orders Table Styling ────────────────── */
+#archived-table {
+  width: 90%;
+  margin: 1.5rem auto;
+  border-collapse: collapse;
+}
+#archived-table th,
+#archived-table td {
+  border: 1px solid #ccc;
+  padding: 0.75rem;
+  text-align: center;
+}
+#archived-table th {
+  background-color: #f9f9f9;
+  font-weight: bold;
+}
+#archived-table tbody tr:nth-child(even) {
+  background-color: #fafafa;
+}
+#archived-table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* ── Archive-button Styling ─────────────────────────── */
+.btn-archive {
+  background-color: #f0ad4e; /* Bootstrap-warning orange */
+  color: #fff;
+  border: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  font-size: 0.9rem;
+}
+.btn-archive:hover {
+  background-color: #ec971f;
+}
+
+/* ── Order History List Styling ───────────────────── */
+#order-status-list {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+  margin-top: 1rem;
+}
+#order-status-list li {
+  margin: 0.5rem 0;
+}
+
+/* ── Menu Container & Items ───────────────────────── */
+#menu-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+/* ── Elite-style Menu Item Cards ──────────────────── */
+.menu-item {
+  background-color: #000;
+  color: #fff;
+  margin: 15px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  width: calc(33.333% - 30px);
+  box-sizing: border-box;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.menu-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+.menu-item img {
+  width: 100%;
+  height: 200px; /* taller images */
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  border: 2px solid #444;
+}
+.menu-item h4 {
+  margin: 8px 0;
+  font-size: 1.2rem;
+}
+.menu-item p {
+  font-size: 0.9em;
+  color: #ddd;
+  margin-bottom: 12px;
+}
+
+/* ── Responsive Tweaks for Menu Items ─────────────── */
+@media (max-width: 768px) {
+  .menu-item {
+    width: calc(50% - 30px);
+  }
+}
+@media (max-width: 480px) {
+  .menu-item {
+    width: calc(100% - 30px);
+  }
+}
+
+/* ── Special Notes Textarea ───────────────────────── */
+#notes-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.5rem 0;
+}
+#notes-container label {
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+#special-notes {
+  width: 60%;
+  max-width: 500px;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: none;
+  overflow: hidden;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+/* ── Order Form & Buttons ─────────────────────────── */
+#order-form {
+  text-align: center;
+  margin: 1.5rem 0;
+}
+input[type="text"] {
+  padding: 8px;
+  margin: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  width: 60%;
+  max-width: 400px;
+  box-sizing: border-box;
+}
+button {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #45a049;
+}
+
+/* ── Quantity Selector Styling ────────────────────── */
+.quantity-selector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.qty-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background-color: #ddd;
+  font-size: 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 0 0.5rem;
+  padding: 0;
+  line-height: 1;
+}
+.qty-btn:active {
+  background-color: #ccc;
+}
+.qty-value {
+  min-width: 24px;
+  text-align: center;
+  font-size: 1rem;
+}
+
+/* ── Global Body & Container ─────────────────────── */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 1200px;
+}
+
+/* ── Login Page Styling ───────────────────────────── */
+body.login-page {
+  background: #f4f4f4;
+  padding: 2rem 0;
+  font-family: Arial, sans-serif;
+}
+/* ── Hide Default Nav on Login Page ───────────────── */
+body.login-page nav:not(.login-nav) {
+  display: none;
+}
+.login-nav {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.login-nav a {
+  color: #007bff;
+  text-decoration: none;
+}
+.login-box {
+  background: #fff;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.login-box h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+.login-box .flash {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+.login-box .flash.success {
+  color: #27ae60;
+}
+.login-box .flash.error {
+  color: #c0392b;
+}
+.login-form .form-group {
+  margin-bottom: 1.25rem;
+}
+.login-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #333;
+}
+.login-form input.form-control {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin: 0.25rem 0 1rem 0;
+}
+.btn-block {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+.home-link {
+  display: block;
+  text-align: center;
+  margin-top: 1rem;
+  color: #007bff;
+  text-decoration: none;
+}
+
+/* ── Dashboard Controls (Filter, Buttons) ─────────── */
+.orders-controls,
+.completed-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 1rem auto;
+}
+.orders-controls label,
+.orders-controls select,
+.orders-controls button,
+.completed-controls label,
+.completed-controls select,
+.completed-controls button {
+  margin: 0.5rem;
+}
+
+/* ── QR Grid Styling ─────────────────────────────── */
+.qr-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.qr-item {
+  margin: 1rem;
+  text-align: center;
+}
+.qr-img {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+}
+
+/* ── General Button Styling ───────────────────────── */
+.btn {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background-color: #4caf50;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+.btn:hover {
+  background-color: #45a049;
+}
+
+/* ── Pagination Styling ───────────────────────────── */
+.pagination {
+  display: flex; /* use flex layout */
+  justify-content: center; /* center them horizontally */
+  flex-wrap: wrap; /* let items wrap to new lines */
+  gap: 0.25rem; /* small gap between buttons */
+  margin: 1rem 0; /* breathing room above & below */
+}
+.pagination a {
+  margin: 0 0.25rem;
+  padding: 0.5rem 0.75rem;
+  background: #eee;
+  color: #333;
+  text-decoration: none;
+  border-radius: 4px;
+}
+.pagination a.current {
+  background: #4caf50;
+  color: #fff;
+}
+.pagination a.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* ── Cart Panel Centering ─────────────────────────── */
+#cart-panel {
+  max-width: 600px;
+  margin: 2rem auto; /* center the panel and give vertical spacing */
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ── Cart Panel Inner Styles ───────────────────────── */
+#cart-panel h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+#cart-panel #cart-total {
+  text-align: center;
+  font-weight: bold;
+  margin: 1rem 0;
+}
+#cart-panel .cart-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+/* ── Cart Feedback & Timestamp Centering ─────────── */
+#cart-feedback {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin: 1rem 0 0 0;
+}
+#last-updated {
+  text-align: center;
+  margin: 0.5rem 0;
+}
+
+/* ── Flex Align Notes Label & Input ──────────────── */
+#notes-container {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  margin: 1.5rem 0;
+}
+#notes-container label {
+  margin-right: 0.5rem;
+}
+
+/* ── Order Success Message Styling ───────────────── */
+#order-success {
+  display: none;
+  text-align: center;
+  margin: 1rem 0;
+  font-size: 1rem;
+  color: #28a745;
+}

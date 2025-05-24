@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block html_lang %}tr{% endblock %}
+{% block title %}Masa {{ table_id }} — Menü{% endblock %}
+
+{% block content %}
+{# ── PAGE TITLE ─────────────────────────────────────────── #}
+<h1 class="menu-page-title">Masa {{ table_id }} — Menü</h1>
+
+{# ── MENU CARDS ────────────────────────────────────────── #}
+<div id="menu-container"></div>
+
+{# ── SPECIAL NOTES INPUT ───────────────────────────────── #}
+<div id="notes-container">
+    <label for="special-notes">Özel Notlar:</label>
+    <textarea id="special-notes" name="special_notes" placeholder="Özel notlarınızı buraya girebilirsiniz"
+        rows="1"></textarea>
+</div>
+
+{# ── CART PANEL (hidden until items added) ────────────── #}
+<div id="cart-panel" style="display:none;">
+    <h2>🛒 Sipariş Özeti</h2>
+    <ul id="cart-items"></ul>
+    <p id="cart-total">Toplam: ₺0,00</p>
+    <div class="cart-actions">
+        <button id="cart-clear">İptal</button>
+        <button id="cart-submit">Siparişi Gönder</button>
+    </div>
+</div>
+
+{# ── ORDER SUCCESS MESSAGE ──────────────────────────── #}
+<div id="order-success"></div>
+
+{# ── LIVE ORDER STATUS ─────────────────────────────── #}
+<h3>Siparişleriniz</h3>
+<div id="last-updated">Son güncelleme: —</div>
+<ul id="order-status-list"></ul>
+{% endblock %}
+
+{% block scripts %}
+{# ── PASS TABLE ID TO SCRIPT ─────────────────────────── #}
+<script>
+    document.body.dataset.tableid = "{{ table_id }}";
+</script>
+{# ── MENU JAVASCRIPT ─────────────────────────────────── #}
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+{% endblock %}
