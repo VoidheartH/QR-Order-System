@@ -105,8 +105,10 @@ function renderOrders(orders) {
       </td>
       <td>${orderDate}</td>
       <td>
-        <button class="btn-update" data-id="${id}">Güncelle</button>
-        <button class="btn-archive" data-id="${id}">Arşivle</button>
+        <div class="action-buttons">
+          <button class="btn-update" data-id="${id}">Güncelle</button>
+          <button class="btn-archive" data-id="${id}">Arşivle</button>
+        </div>
       </td>
     `;
     tbody.appendChild(tr);

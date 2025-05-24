@@ -37,3 +37,34 @@
   white-space: pre-wrap;
   overflow-wrap: break-word;
 }
+
+/* bold Masa column (2nd column) */
+table th:nth-child(2),
+table td:nth-child(2) {
+  font-weight: 700;
+}
+
+/* tighten up the Durum dropdown */
+.status-select {
+  padding: 0.25rem 0.5rem;
+  line-height: 1.2;
+  height: auto;
+}
+
+/* flex-container for Güncelle + Arşivle */
+.action-buttons {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* push Arşivle to the right & make it red */
+.action-buttons .btn-archive {
+  margin-left: 0.5rem;
+  background-color: #e74c3c;
+  border-color: #e74c3c;
+}
+.action-buttons .btn-archive:hover {
+  background-color: #c0392b;
+  border-color: #c0392b;
+}
