@@ -153,16 +153,39 @@
   margin: 0 0.5rem;
 }
 
-/* ── Live Orders Centering ──────────────────────────── */
-/* center the timestamp & list at bottom */
-#last-updated,
-#order-status-list {
-  width: fit-content;
-  margin: 1rem auto;
-  text-align: left;
+/* ── Center “Son güncelleme” timestamp & live-orders list ───────────────── */
+#last-updated {
+  display: block; /* span full width so margin auto works */
+  width: max-content; /* shrink to its content */
+  margin: 1rem auto 0; /* auto-left/right centering */
+  text-align: center; /* center the timestamp text */
 }
-/* indent bullets but keep the boxed block centered */
+
 #order-status-list {
-  padding-left: 1.2em;
+  /* shrink to its contents */
+  margin: 0.5rem auto; /* auto-center horizontally */
+  padding-left: 1.2em; /* indent bullets */
+  text-align: center; /* keep list items left-aligned */
+}
+
+/* ── Center live-orders block ───────────────────────── */
+#live-orders {
+  text-align: center;
+  margin: 1.5rem 0;
+}
+
+/* shrink list, keep bullets indented, but center the block */
+#live-orders #order-status-list {
   display: inline-block;
+  text-align: left;
+  padding-left: 0;
+  margin: 0.5rem auto;
+}
+
+#live-orders #order-status-list li::before {
+  content: "•"; /* your custom bullet */
+  display: inline-block;
+  width: 1em; /* reserve room */
+  margin-left: -1em; /* nudge bullet into the left margin */
+  color: #333; /* match your text color */
 }
