@@ -1,179 +1,204 @@
-/* ── Menu container & flex grid ───────────────────────── */
+/* ── Global Typography & Background ───────────────────────── */
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+h1.menu-page-title {
+  text-align: center;
+  margin: 1.5rem 0;
+  color: #333;
+  font-size: 1.8rem;
+}
+
+/* ── Menu Grid & Cards ───────────────────────────────────── */
 #menu-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 1rem;
+  gap: 1rem;
+  padding: 0 1rem;
 }
 
-/* ── Menu item cards ─────────────────────────────────── */
 .menu-item {
   background-color: #000;
   color: #fff;
-  margin: 15px;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-  width: calc(33.333% - 30px);
-  box-sizing: border-box;
-  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  width: calc(33.333% - 2rem);
+  display: flex;
+  flex-direction: column;
   transition: transform 0.2s, box-shadow 0.2s;
+  margin-bottom: 1.5rem;
+  width: 90%;
+  max-width: 500px; /* for large screens */
+  margin: 0 auto 1.5rem;
 }
 .menu-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
 }
+
 .menu-item img {
   width: 100%;
-  height: 200px;
+  height: 180px;
   object-fit: cover;
-  border-radius: 6px;
-  margin-bottom: 10px;
-  border: 2px solid #444;
 }
-.menu-item h4 {
-  margin: 8px 0;
-  font-size: 1.2rem;
+
+.menu-item-content {
+  padding: 2rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
-.menu-item p {
-  font-size: 0.9em;
+.menu-item-content h4 {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+}
+.menu-item-content p {
+  flex-grow: 1;
+  font-size: 0.9rem;
+  line-height: 1.3;
   color: #ddd;
-  margin-bottom: 12px;
+  margin-bottom: 1rem;
 }
 
-/* ── Responsive tweaks ───────────────────────────────── */
-@media (max-width: 768px) {
-  .menu-item {
-    width: calc(50% - 30px);
-  }
+/* ── Quantity Controls ───────────────────────────────────── */
+.quantity-selector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
 }
-@media (max-width: 480px) {
-  .menu-item {
-    width: calc(100% - 30px);
-  }
+.qty-btn {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 4px;
+  background-color: #27ae60;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.qty-btn:hover {
+  background-color: #219150;
+}
+.qty-value {
+  min-width: 24px;
+  text-align: center;
+  font-weight: bold;
 }
 
-/* ── Special notes row ────────────────────────────────── */
+/* ── Special Notes ───────────────────────────────────────── */
 #notes-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 1.5rem 0;
+  gap: 0.5rem;
+  padding: 1rem;
 }
 #notes-container label {
   font-weight: bold;
-  margin-right: 0.5rem;
+  color: #333;
 }
 #special-notes {
-  width: 60%;
+  flex-grow: 1;
   max-width: 500px;
   padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 4px;
   resize: none;
   font-family: inherit;
-  font-size: 1rem;
-  overflow: hidden;
 }
 
-/* ── Cart panel & order form ────────────────────────── */
+/* ── Cart Panel (🛒 Sipariş Özeti) ───────────────────────── */
 #cart-panel {
-  /* overridden by global/base.css, but ensure block here too */
   max-width: 600px;
   margin: 2rem auto;
   background: #fff;
   padding: 1.5rem;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 #cart-panel h2 {
   margin-bottom: 1rem;
+  font-size: 1.4rem;
 }
 #cart-items {
   list-style: none;
   padding: 0;
-  margin: 1rem 0;
-  text-align: left;
-  display: inline-block;
+  margin: 0.5rem 0;
 }
 #cart-items li {
   margin: 0.5rem 0;
 }
 #cart-total {
   font-weight: bold;
-  margin-bottom: 1rem;
+  margin: 1rem 0;
 }
 .cart-actions {
   display: flex;
   justify-content: center;
   gap: 1rem;
-  margin-top: 1rem;
 }
 .cart-actions button {
-  padding: 0.75rem 1.25rem;
-  font-size: 1rem;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #27ae60;
+  color: #fff;
+  cursor: pointer;
+}
+.cart-actions button:hover {
+  background-color: #219150;
 }
 
-/* ── Live “Siparişleriniz” status list ───────────────── */
+/* ── Order Success Message ─────────────────────────────── */
+#order-success {
+  display: none;
+  text-align: center;
+  margin: 1rem 0;
+  font-size: 1rem;
+  color: #27ae60;
+}
+
+/* ── Live Orders (“Son güncelleme” + list) ───────────────── */
+#last-updated,
+#order-status-list {
+  width: fit-content;
+  margin: 1rem auto;
+  text-align: left;
+}
 #last-updated {
-  margin-top: 2rem;
   font-style: italic;
 }
 #order-status-list {
-  list-style: none;
-  padding: 0;
-  margin: 1rem auto;
-  text-align: left;
-  display: inline-block;
+  list-style: disc inside;
 }
 #order-status-list li {
-  margin: 0.5rem 0;
+  margin: 0.3rem 0;
 }
 
-/* ── Quantity selector (inside .menu-item) ─────────── */
-.quantity-selector {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 0.5rem;
+/* ── Responsive Breakpoints ────────────────────────────── */
+@media (max-width: 768px) {
+  .menu-item {
+    width: calc(50% - 2rem);
+  }
 }
-.qty-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 32px;
-  height: 32px;
-  border: none;
-  background-color: #4caf50;
-  color: #fff;
-  font-size: 1.2rem;
-  border-radius: 4px;
-  cursor: pointer;
-  margin: 0 0.5rem;
-  padding: 0;
-  line-height: 1;
-}
-.qty-btn:active {
-  background-color: #45a049;
-}
-.qty-value {
-  min-width: 24px;
-  text-align: center;
-  font-size: 1rem;
-}
-
-/* ── Center live-orders block using Flexbox ───────────────── */
-#last-updated,
-#order-status-list {
-  display: flex; /* make a flex container */
-  flex-direction: column; /* stack its children vertically */
-  align-items: center; /* center the children horizontally */
-  margin: 1rem auto; /* center this block within its parent */
-}
-
-/* keep the list text left-aligned inside the centered block */
-#order-status-list {
-  text-align: left;
-  padding-left: 1.2em; /* preserve your bullet indent */
+@media (max-width: 480px) {
+  .menu-item {
+    width: calc(100% - 2rem);
+  }
+  #notes-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .cart-actions {
+    flex-direction: column;
+  }
 }
