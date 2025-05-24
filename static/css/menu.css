@@ -163,13 +163,17 @@
   font-size: 1rem;
 }
 
-/* ── Center live-orders block (timestamp + list) ───────────────── */
+/* ── Center live-orders block using Flexbox ───────────────── */
 #last-updated,
 #order-status-list {
-  /* make the block only as wide as its contents */
-  width: fit-content;
-  /* center it horizontally */
-  margin: 1rem auto;
-  /* keep their internal text left-aligned */
+  display: flex; /* make a flex container */
+  flex-direction: column; /* stack its children vertically */
+  align-items: center; /* center the children horizontally */
+  margin: 1rem auto; /* center this block within its parent */
+}
+
+/* keep the list text left-aligned inside the centered block */
+#order-status-list {
   text-align: left;
+  padding-left: 1.2em; /* preserve your bullet indent */
 }
