@@ -1,13 +1,12 @@
-/* ── MENU GRID ─────────────────────────────────────────────── */
+/* ── Menu container & flex grid ───────────────────────── */
 #menu-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 1rem auto;
-  padding: 0;
+  margin-top: 1rem;
 }
 
-/* ── MENU ITEM CARDS ──────────────────────────────────────── */
+/* ── Menu item cards ─────────────────────────────────── */
 .menu-item {
   background-color: #000;
   color: #fff;
@@ -15,164 +14,162 @@
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-  width: 300px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  width: calc(33.333% - 30px);
+  box-sizing: border-box;
   text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
-
-/* product image */
+.menu-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
 .menu-item img {
   width: 100%;
-  height: auto;
-  border-radius: 8px;
+  height: 200px;
   object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  border: 2px solid #444;
 }
-
-/* title & price row */
-.menu-item h2 {
-  margin: 0.75rem 0 0.25rem;
+.menu-item h4 {
+  margin: 8px 0;
   font-size: 1.2rem;
-  line-height: 1.2;
 }
-.menu-item .price {
-  font-size: 1rem;
-  color: #eee;
-}
-
-/* description */
-.menu-item p.description {
-  margin: 0.5rem 0 1rem;
-  font-size: 0.95rem;
-  line-height: 1.4;
+.menu-item p {
+  font-size: 0.9em;
+  color: #ddd;
+  margin-bottom: 12px;
 }
 
-/* ── QUANTITY CONTROLS ───────────────────────────────────── */
-.quantity-controls {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+/* ── Responsive tweaks ───────────────────────────────── */
+@media (max-width: 768px) {
+  .menu-item {
+    width: calc(50% - 30px);
+  }
 }
-.quantity-controls button {
-  background-color: #28a745;
-  border: none;
-  border-radius: 4px;
-  padding: 0.25rem 0.5rem;
-  margin: 0 0.25rem;
-  font-size: 1.1rem;
-  line-height: 1;
-  cursor: pointer;
-}
-.quantity-controls button:disabled {
-  opacity: 0.6;
-  cursor: default;
-}
-.quantity-controls span.quantity {
-  min-width: 1.5rem;
-  text-align: center;
-  font-size: 1rem;
-}
-
-/* ── RESPONSIVE ───────────────────────────────────────────── */
-@media (max-width: 600px) {
+@media (max-width: 480px) {
   .menu-item {
     width: calc(100% - 30px);
   }
 }
 
-/* ── NOTES INPUT & LABEL ──────────────────────────────────── */
+/* ── Special notes row ────────────────────────────────── */
 #notes-container {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   margin: 1.5rem 0;
 }
 #notes-container label {
+  font-weight: bold;
   margin-right: 0.5rem;
-  font-weight: 600;
 }
 #special-notes {
-  flex: 1;
+  width: 60%;
   max-width: 500px;
-  width: 100%;
-  padding: 0.5rem 0.75rem;
-  font-family: inherit;
-  font-size: 1rem;
+  padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 4px;
-  resize: vertical;
+  resize: none;
+  font-family: inherit;
+  font-size: 1rem;
+  overflow: hidden;
 }
 
-/* stack label/input on mobile */
-@media (max-width: 600px) {
-  #notes-container {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  #notes-container label {
-    margin: 0 0 0.5rem;
-  }
-}
-
-/* ── ORDER SUMMARY ────────────────────────────────────────── */
-#order-summary {
-  margin: 1.5rem auto;
+/* ── Cart panel & order form ────────────────────────── */
+#cart-panel {
+  /* overridden by global/base.css, but ensure block here too */
+  max-width: 600px;
+  margin: 2rem auto;
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
-#order-summary h3 {
-  display: inline-flex;
-  align-items: center;
-  font-size: 1.2rem;
+#cart-panel h2 {
+  margin-bottom: 1rem;
 }
-#order-summary h3::before {
-  content: "\1F6D2"; /* shopping cart emoji */
-  margin-right: 0.5rem;
-  font-size: 1.5rem;
-}
-#order-summary ul {
+#cart-items {
   list-style: none;
   padding: 0;
-  margin: 0.5rem auto;
+  margin: 1rem 0;
   text-align: left;
   display: inline-block;
 }
-#order-summary li {
-  margin: 0.25rem 0;
+#cart-items li {
+  margin: 0.5rem 0;
 }
-#order-summary #total {
-  font-weight: 700;
-  margin-top: 0.5rem;
+#cart-total {
+  font-weight: bold;
+  margin-bottom: 1rem;
 }
-
-/* ── ACTION BUTTONS ───────────────────────────────────────── */
-.btn {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 4px;
-  text-decoration: none;
-  font-size: 1rem;
-  cursor: pointer;
-}
-.btn-cancel {
-  background-color: #6c757d;
-  color: #fff;
-  margin-right: 0.5rem;
-}
-.btn-submit {
-  background-color: #28a745;
-  color: #fff;
-}
-.btn:hover {
-  opacity: 0.9;
-}
-
-/* ── LAST UPDATED TIMESTAMP ───────────────────────────────── */
-#last-updated {
+.cart-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
   margin-top: 1rem;
-  font-size: 0.9rem;
-  color: #555;
+}
+.cart-actions button {
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+}
+
+/* ── Live “Siparişleriniz” status list ───────────────── */
+#last-updated {
+  margin-top: 2rem;
+  font-style: italic;
+}
+#order-status-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem auto;
+  text-align: left;
+  display: inline-block;
+}
+#order-status-list li {
+  margin: 0.5rem 0;
+}
+
+/* ── Quantity selector (inside .menu-item) ─────────── */
+.quantity-selector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.qty-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background-color: #4caf50;
+  color: #fff;
+  font-size: 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 0 0.5rem;
+  padding: 0;
+  line-height: 1;
+}
+.qty-btn:active {
+  background-color: #45a049;
+}
+.qty-value {
+  min-width: 24px;
   text-align: center;
+  font-size: 1rem;
+}
+
+/* ── Center live-orders block (timestamp + list) ───────────────── */
+#last-updated,
+#order-status-list {
+  /* make the block only as wide as its contents */
+  width: fit-content;
+  /* center it horizontally */
+  margin: 1rem auto;
+  /* keep their internal text left-aligned */
+  text-align: left;
 }
