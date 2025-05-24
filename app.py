@@ -295,6 +295,9 @@ def update_order_status(oid):
         return jsonify({'error':'Status required'}), 400
     o = Orders.query.get_or_404(oid)
     o.status = d['status']
+    # auto-archive completed orders
+    if o.status.lower() == 'completed':
+        o.archived = True
     db.session.commit()
     return jsonify({'message':f'Order {oid} updated'})
 
@@ -335,7 +338,7 @@ def qr_code(table_id):
 def admin_view():
     return render_template('orders.html')
 
-# ── 12) NEW: archive completed orders ─────────────────────────
+# ── 12) archive completed orders ─────────────────────────
 @app.route('/archive', methods=['POST'])
 @login_required
 def archive_completed():
@@ -352,7 +355,7 @@ def archive_completed():
 def archived_orders_page():
     return render_template('archived_orders.html')
 
-# ── 14) NEW: JSON for archived data ──────────────────────────
+# ── 14) JSON for archived data ──────────────────────────
 @app.route('/archived/data')
 @login_required
 def get_archived_orders_data():
@@ -360,7 +363,7 @@ def get_archived_orders_data():
     return jsonify([[o.id,o.table_id,o.order_date,o.items,o.status,o.special_notes]
                     for o in archived])
 
-# ── 15) NEW: CSV export for archived ─────────────────────────
+# ── 15) CSV export for archived ─────────────────────────
 @app.route('/archived/export')
 @login_required
 def export_archived_csv():
@@ -462,12 +465,21 @@ def manage_root():
 # ── 16) Bootstrap & Seed Manager ───────────────────────────────
 if __name__ == '__main__':
     with app.app_context():
+        # create tables if they don't exist
         db.create_all()
-        DEFAULT_USER = os.getenv("MANAGER_USER","manager")
-        DEFAULT_PW   = os.getenv("MANAGER_PW","ChangeMe123!")
-        if not User.query.filter_by(username=DEFAULT_USER).first():
-            m = User(username=DEFAULT_USER)
-            m.set_password(DEFAULT_PW)
-            db.session.add(m); db.session.commit()
-            print(f"🛡️ Seeded manager: {DEFAULT_USER}/{DEFAULT_PW}")
-    app.run(debug=True)
+
+        # pull in the credentials you defined in .env
+        mgr_user = os.getenv("MANAGER_USER", "manager")
+        mgr_pw   = os.getenv("MANAGER_PW", "ChangeMe123!")
+
+        # only seed if that username isn't already there
+        if not User.query.filter_by(username=mgr_user).first():
+            admin = User(username=mgr_user)
+            admin.set_password(mgr_pw)
+            db.session.add(admin)
+            db.session.commit()
+            print(f"🛡️ Seeded manager: {mgr_user}/{mgr_pw}")
+
+    # turn off Flask’s built-in debugger in production
+    app.run(debug=False)
+
